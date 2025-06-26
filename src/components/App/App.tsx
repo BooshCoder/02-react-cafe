@@ -4,11 +4,8 @@ import css from './App.module.css';
 import { CafeInfo } from '../CafeInfo/CafeInfo';
 import { VoteOption } from '../VoteOption/VoteOption';
 import { VoteStars } from '../VoteStars/VoteStats';
-
-
-
 import { useState } from 'react';
-import { Votes, VoteType } from '../../types/votes';
+import type { Votes, VoteType } from '../../types/votes';
 
 export const App = () => {
     const [votes, setVotes] = useState<Votes>({
