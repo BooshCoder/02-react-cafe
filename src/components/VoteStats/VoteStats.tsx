@@ -7,7 +7,7 @@ interface VoteStatsProps {
     positiveRate: number;
 }
 
-export const VoteStars = ({ votes, totalVotes, positiveRate }: VoteStatsProps) => {
+const VoteStats = ({ votes, totalVotes, positiveRate }: VoteStatsProps) => {
     return (
         <div className={css.container}>
             <p className={css.stat}>Good: <strong>{votes.good}</strong></p>
@@ -18,3 +18,4 @@ export const VoteStars = ({ votes, totalVotes, positiveRate }: VoteStatsProps) =
         </div>
     );
 };
+export default VoteStats;

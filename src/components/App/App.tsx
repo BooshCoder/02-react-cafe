@@ -1,13 +1,14 @@
 <div className={css.app}></div>
 
 import css from './App.module.css';
-import { CafeInfo } from '../CafeInfo/CafeInfo';
-import { VoteOption } from '../VoteOption/VoteOption';
-import { VoteStars } from '../VoteStars/VoteStats';
+import CafeInfo from '../CafeInfo/CafeInfo';
+import VoteOption from '../VoteOption/VoteOption';
+import VoteStats from '../VoteStats/VoteStats';
+import Notification from '../Notification/Notification';
 import { useState } from 'react';
 import type { Votes, VoteType } from '../../types/votes';
 
-export const App = () => {
+const App = () => {
     const [votes, setVotes] = useState<Votes>({
       good: 0,
       neutral: 0,
@@ -35,13 +36,18 @@ export const App = () => {
         <VoteOption
           onVote={handleVote}
           onReset={resetVotes}
-          canReset={true}
+          canReset={totalVotes > 0}
         />
-        <VoteStars
-          votes={votes}
-          totalVotes={totalVotes}
-          positiveRate={positiveRate}
-        />
+       {totalVotes > 0 ? (
+  <VoteStats
+    votes={votes}
+    totalVotes={totalVotes}
+    positiveRate={positiveRate}
+  />
+) : (
+  <Notification />
+)}
       </div>
     );
-  };
+};
+export default App;

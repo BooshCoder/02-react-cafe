@@ -1,6 +1,6 @@
 import css from './CafeInfo.module.css';
 
-export const CafeInfo = () => {
+const CafeInfo = () => {
   return (
     <div className={css.container}>
       <h1 className={css.title}>Sip Happens Café</h1>
@@ -10,3 +10,4 @@ export const CafeInfo = () => {
     </div>
   );
 };
+export default CafeInfo;
